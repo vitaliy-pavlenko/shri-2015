@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI light";
+}
+body {
+    font-size: 1.2em;
+}
+#sortie,
+#arrival {
+    display: none;
+}
+.header {
+    background-color: #555;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,.7);
+    z-index: 5;
+    top: 0;
+}
+.info {
+    margin-top: 0.5%;
+    float: left;
+    width: 70%;
+    padding: 1.5%;
+    background-color: inherit;
+}
+.logo {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 2px solid #ff8780;
+    background-color: inherit;
+    color: #aaa;
+    font-weight: bold;
+}
+.sort__panel {
+    margin-top: 0.5%;
+    float: left;
+    width: 20%;
+    padding: 1.5%;
+    background-color: inherit;
+}
+.sort__label {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 2px solid #a4bf82;
+    background-color: inherit;
+    color: #aaa;
+}
+.sort__label:hover,
+#sortie:checked~.header .sort__panel label[for=sortie] .sort__label,
+#arrival:checked~.header .sort__panel label[for=arrival] .sort__label {
+    color: #fff;
+    background-color: #a4bf82;
+}
+#sortie:checked~.header .sort__panel label[for=sortie] .sort__label:hover,
+#arrival:checked~.header .sort__panel label[for=arrival] .sort__label:hover {
+    color: #aaa;
+    background-color: inherit;
+}
+.schedule,
+.table__header,
+.content__table{
+    width: 100%;
+}
+
+.table__header thead {
+    color: #aaa;
+    background-color: #555;
+}
+.table__header th,
+.content__table td {
+    padding: 0.7em;
+}
+.content__table {
+    margin-top: 136px;
+}
