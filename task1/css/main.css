@@ -108,6 +108,9 @@ body {
 .table__body .table__row li:hover:before {
     background-color: rgba(180, 245, 29, .2) !important;
 }
+.table__body .table__row li:last-child:hover:before {
+    position: static;
+}
 .table__body .table__row li:hover:before {
     content: "";
     position: absolute;
