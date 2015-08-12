@@ -1,196 +1,1048 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Task 1</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-</head>
-<body>
-    <div class="schedule">
-        <input type="checkbox" id="sortie" checked>
-        <input type="checkbox" id="arrival" checked>
-        <div class="header">
-            <div class="info">
-                <span class="logo">ШРИ 2015</span>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <title>Task 1</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+    <body>
+        <div class="schedule">
+            <input type="checkbox" id="sortie" checked>
+            <input type="checkbox" id="arrival" checked>
+            <div class="header">
+                <div class="info">
+                    <span class="logo">ШРИ 2015</span>
+                </div>
+                <div class="sort__panel">
+                    <label for="sortie"><span class="sort__label">Вылет</span></label>
+                    <label for="arrival"><span class="sort__label">Прилет</span></label>
+                </div>
             </div>
-            <div class="sort__panel">
-                <label for="sortie"><span class="sort__label">Вылет</span></label>
-                <label for="arrival"><span class="sort__label">Прилет</span></label>
+            <div class="main__content">
+                <div class="table__header">
+                    <ul class="table__row">
+                        <li>Тип</li>
+                        <li>Рейс</li>
+                        <li>Авиакомпания</li>
+                        <li>Логотип</li>
+                        <li>Самолет</li>
+                        <li>Аэропорт назначения</li>
+                        <li>Время</li>
+                        <li>Статус рейса</li>
+                        <li>Примечание</li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="table__body">
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>ЮТ 384</li>
+                    <li>Аэрофлот</li>
+                    <li><i class="company__logo aeroflot"></i></li>
+                    <li>Бомбардье ЦЛ-60</li>
+                    <li>Москва (Внуково)</li>
+                    <li>
+                        <div class="time">23:21</div>
+                        <div class="date">06.08.2015</div>
+                    </li>
+                    <li>Вылетел в 21:07</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">6 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aeroflot"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Южно-Сахалинск (Хомутово)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Вылетел в 21:07</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>23:21</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ЮТ 384</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Аэрофлот</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Бомбардье ЦЛ-60</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <sortie class="table__row sortie" tabindex="1">
+                    <li><i class="type__sortie"></i></li>
+                    <li>UT 833</li>
+                    <li>Аэрофлот</li>
+                    <li><i class="company__logo aeroflot"></i></li>
+                    <li>АТР 72</li>
+                    <li>Нижний Новгород</li>
+                    <li>
+                        <div class="time">23:30</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Посадка с 21:45</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aeroflot"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__sortie"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Нижний Новгород</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Посадка с 21:45</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>23:30</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>UT 833</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Аэрофлот</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>АТР 72</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </sortie>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>СУ 5801</li>
+                    <li>Aerovip</li>
+                    <li><i class="company__logo aerovip"></i></li>
+                    <li>АТР 72</li>
+                    <li>Москва (Внуково)</li>
+                    <li>
+                        <div class="time">23:24</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Вылетел в 21:07</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aerovip"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Нижний Новгород</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Вылетел в 21:07</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>23:24</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>СУ 5801</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Aerovip</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>АТР 72</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>Р2 5801</li>
+                    <li>Kenya Airways</li>
+                    <li><i class="company__logo kenya"></i></li>
+                    <li>Боинг 737-800</li>
+                    <li>Москва (Внуково)</li>
+                    <li>
+                        <div class="time">19:00</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Прилетел в 19:03</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo kenya"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Самара</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Прилетел в 19:03</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время вылета в пункт назначения</th>
+                                        <td>16:24</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>Р2 5801</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Aerovip</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-800</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>ДР 190</li>
+                    <li>Aigle Azur</li>
+                    <li><i class="company__logo aigleazur"></i></li>
+                    <li>Боинг 747-400</li>
+                    <li>Родос (Диагорас)</li>
+                    <li>
+                        <div class="time">19:30</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Прилетел в 19:30</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aigleazur"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Родос (Диагорас)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Прилетел в 19:30</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время вылета в пункт назначения</th>
+                                        <td>13:08</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ДР 190</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Aigle Azur</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 747-400</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>ДР 122</li>
+                    <li>Tailwind</li>
+                    <li><i class="company__logo tailwind"></i></li>
+                    <li>Боинг 747-400</li>
+                    <li>Сочи (Адлер)</li>
+                    <li>
+                        <div class="time">19:25</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Прилетел в 19:25</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo tailwind"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Сочи (Адлер)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Прилетел в 19:25</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время вылета в пункт назначения</th>
+                                        <td>15:25</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ДР 122</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Tailwind</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 747-400</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <sortie class="table__row sortie" tabindex="1">
+                    <li><i class="type__sortie"></i></li>
+                    <li>ОП 4497</li>
+                    <li>RYANAIR</li>
+                    <li><i class="company__logo ryanair"></i></li>
+                    <li>Аэробус А319</li>
+                    <li>Санкт-Петербург (Пулково)</li>
+                    <li>
+                        <div class="time">21:26</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Вылетел в 19:51</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo ryanair"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__sortie"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Санкт-Петербург (Пулково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Вылетел в 19:51</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>21:26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ОП 4497</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>RAYNAIR</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Аэробус А319</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </sortie>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>ЮТ 274</li>
+                    <li>Continental Airlines</li>
+                    <li><i class="company__logo continental"></i></li>
+                    <li>Боинг 737-500</li>
+                    <li>Киев</li>
+                    <li>
+                        <div class="time">19:21</div>
+                        <div class="date">04.08.2015</div>
+                    </li>
+                    <li>Прилетел в 19:21</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">4 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo continental"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Киев</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Прилетел в 19:21</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время вылета в пункт назначения</th>
+                                        <td>14:26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ЮТ 274</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Continental Airlines</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-500</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>А9 929</li>
+                    <li>Lion Air</li>
+                    <li><i class="company__logo lionair"></i></li>
+                    <li>Боинг 737-800</li>
+                    <li>Сургут (Стригино)</li>
+                    <li>
+                        <div class="time">19:03</div>
+                        <div class="date">07.08.2015</div>
+                    </li>
+                    <li>По расписанию</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">7 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo lionair"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Сургут (Стригино)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Киев</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>По расписанию</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>19:03</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>А9 929</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Lion Air</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-800</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>СУ 5825</li>
+                    <li>RYANAIR</li>
+                    <li><i class="company__logo ryanair"></i></li>
+                    <li>Боинг 747-400</li>
+                    <li>Анталья</li>
+                    <li>
+                        <div class="time">21:00</div>
+                        <div class="date">05.08.2015</div>
+                    </li>
+                    <li>Задерживается до 21:20</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">5 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo ryanair"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Анталья</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Задерживается до 21:20</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>21:00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>СУ 5825</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>RYANAIR</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 747-400</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <sortie class="table__row sortie" tabindex="1">
+                    <li><i class="type__sortie"></i></li>
+                    <li>ЮТ 384</li>
+                    <li>Aerovip</li>
+                    <li><i class="company__logo aerovip"></i></li>
+                    <li>АН-140</li>
+                    <li>Сочи (Адлер)</li>
+                    <li>
+                        <div class="time">21:23</div>
+                        <div class="date">06.08.2015</div>
+                    </li>
+                    <li>Регистрация</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">6 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aerovip"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__sortie"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Сочи (Адлер)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Регистрация</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>21:23</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ЮТ 384</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Aerovip</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>АН-140</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </sortie>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>ЛА 717</li>
+                    <li>Аэрофлот</li>
+                    <li><i class="company__logo aeroflot"></i></li>
+                    <li>Боинг 737-800</li>
+                    <li>Рим (Фьюмичино)</li>
+                    <li>
+                        <div class="time">19:07</div>
+                        <div class="date">04.08.2015</div>
+                    </li>
+                    <li>Прилетел в 19:07</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">4 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aeroflot"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Рим (Фьюмичино)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Прилетел в 19:07</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время вылета в пункт назначения</th>
+                                        <td>12:13</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ЛА 717</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Аэрофлот</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-800</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <sortie class="table__row sortie" tabindex="1">
+                    <li><i class="type__sortie"></i></li>
+                    <li>ОП 4794</li>
+                    <li>Tailwind</li>
+                    <li><i class="company__logo tailwind"></i></li>
+                    <li>Боинг 737-800 (в)</li>
+                    <li>Волгоград (Гумрак)</li>
+                    <li>
+                        <div class="time">20:51</div>
+                        <div class="date">07.08.2015</div>
+                    </li>
+                    <li>Ожидание посадки</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">7 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo tailwind"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__sortie"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Волгоград (Гумрак)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Ожидание посадки</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>20:51</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ОП 4794</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Tailwind</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-800 (в)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </sortie>
+                <arrival class="table__row arrival" tabindex="1">
+                    <li><i class="type__arrival"></i></li>
+                    <li>УН 11</li>
+                    <li>RYANAIR</li>
+                    <li><i class="company__logo ryanair"></i></li>
+                    <li>Аэробус А332</li>
+                    <li>Стамбул (Ататюрк)</li>
+                    <li>
+                        <div class="time">19:59</div>
+                        <div class="date">07.08.2015</div>
+                    </li>
+                    <li>По расписанию</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">7 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo ryanair"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__arrival"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Стамбул (Ататюрк)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>По расписанию</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>19:59</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>УН 11</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>RYANAIR</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Аэробус А332</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </arrival>
+                <sortie class="table__row sortie" tabindex="1">
+                    <li><i class="type__sortie"></i></li>
+                    <li>ЮТ 151</li>
+                    <li>Aerovip</li>
+                    <li><i class="company__logo aerovip"></i></li>
+                    <li>Боинг 737-800 (в)</li>
+                    <li>Анапа (Витязево)</li>
+                    <li>
+                        <div class="time">22:05</div>
+                        <div class="date">07.08.2015</div>
+                    </li>
+                    <li>Ожидание посадки</li>
+                    <li>Код-шеринг</li>
+                    <li class="flight__info">
+                        <div class="flight__details__popup">
+                            <div class="popup__header">
+                                <div class="popup__title">
+                                    Информация о рейсе
+                                    <span class="date">7 августа</span>
+                                </div>
+                                <div class="popup__company">
+                                    <i class="company__logo aerovip"></i>
+                                </div>
+                            </div>
+                            <div class="popup__table">
+                                <table>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <td><i class="type__sortie"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Вылет</th>
+                                        <td>Москва (Внуково)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Направление</th>
+                                        <td>Анапа (Витязево)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус</th>
+                                        <td>Ожидание посадки</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Время прилета в пункт назначения</th>
+                                        <td>22:05</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер рейса</th>
+                                        <td>ЮТ 151</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Авиакомпания</th>
+                                        <td>Aerovip</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Воздушное судно</th>
+                                        <td>Боинг 737-800 (в)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Примечание</th>
+                                        <td>Код-шеринг</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </sortie>
+                <div class="background"></div>
+                </div>
             </div>
-            <table class="table__header">
-                <thead>
-                    <tr>
-                        <th>Тип</th>
-                        <th>Рейс</th>
-                        <th>Авиакомпания</th>
-                        <th>Логотип</th>
-                        <th>Самолет</th>
-                        <th>Аэропорт назначения</th>
-                        <th>Время</th>
-                        <th>Статус рейса</th>
-                        <th>Примечание</th>
-                    </tr>
-                </thead>
-            </table>
         </div>
-        <table class="content__table">
-            <tbody>
-                <tr class="arrival">
-                    <td>1</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-                <tr class="arrival">
-                    <td>a</td>
-                    <td><span>Д2 18</span></td>
-                    <td>Авиапредприятие Северсталь</td>
-                    <td>-</td>
-                    <td>Бомбардье ЦЛ-60</td>
-                    <td>Череповец</td>
-                    <td>
-                        <div class="time">21:00</div>
-                        <div class="date">05.08.2015</div>
-                    </td>
-                    <td>Вылетел в 21:07</td>
-                    <td>Код-шеринг</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
+    </body>
 </html>

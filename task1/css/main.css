@@ -1,9 +1,14 @@
+@font-face{
+    font-family:'Segoe UI light';
+    src: url(segoeuil.ttf);
+}
 * {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI light";
 }
 body {
+    min-width: 350px;
     font-size: 1.2em;
 }
 #sortie,
@@ -14,19 +19,21 @@ body {
     background-color: #555;
     position: fixed;
     width: 100%;
-    box-shadow: 0 0 5px rgba(0,0,0,.7);
     z-index: 5;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
     top: 0;
+    height: 12vh;
 }
 .info {
-    margin-top: 0.5%;
+    margin-top: 2.5vh;
     float: left;
     width: 70%;
-    padding: 1.5%;
+    padding: 1.5vh;
     background-color: inherit;
 }
 .logo {
-    padding: 0.5em;
+    margin-left: 2%;
+    padding: 1vh;
     border-radius: 5px;
     border: 2px solid #ff8780;
     background-color: inherit;
@@ -34,14 +41,14 @@ body {
     font-weight: bold;
 }
 .sort__panel {
-    margin-top: 0.5%;
+    margin-top: 2.5vh;
     float: left;
     width: 20%;
-    padding: 1.5%;
+    padding: 1.5vh;
     background-color: inherit;
 }
 .sort__label {
-    padding: 0.5em;
+    padding: 1vh;
     border-radius: 5px;
     border: 2px solid #a4bf82;
     background-color: inherit;
@@ -58,20 +65,249 @@ body {
     color: #aaa;
     background-color: inherit;
 }
+#sortie:checked~.main__content .table__body .sortie,
+#arrival:checked~.main__content .table__body .arrival {
+    display: table;
+}#sortie:not(:checked)~.main__content .table__body .sortie,
+ #arrival:not(:checked)~.main__content .table__body .arrival {
+     display: none;
+ }
 .schedule,
-.table__header,
-.content__table{
+.content__table,
+.table__row {
     width: 100%;
 }
-
-.table__header thead {
+.table__header {
+    top: 12vh;
+    width: 100%;
+    position: fixed;
+    z-index: 4;
+    box-shadow: 0 0 5px rgba(0,0,0,.9);
     color: #aaa;
     background-color: #555;
 }
-.table__header th,
-.content__table td {
-    padding: 0.7em;
+.table__row {
+    table-layout: fixed;
+    display: table;
+    cursor: pointer;
 }
-.content__table {
-    margin-top: 136px;
+.table__row li {
+    padding: 2vh;
+    position: relative;
+    vertical-align: middle;
+    width: auto;
+    display: table-cell;
+    text-align: center;
+}
+.table__body {
+    margin-top: 24vh;
+    width: 100%;
+    overflow: hidden;
+}
+.table__body .table__row:hover,
+.table__body .table__row li:hover:before {
+    background-color: rgba(180, 245, 29, .2) !important;
+}
+.table__body .table__row li:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -100vh;
+    width: 100%;
+    height: 180vh;
+    z-index: -1;
+}
+#sortie:checked+#arrival:checked ~ .main__content .table__body>*:nth-child(even),
+#sortie:checked+#arrival:not(:checked) ~.main__content .table__body sortie:nth-of-type(even),
+#sortie:not(:checked)+#arrival:checked ~.main__content .table__body arrival:nth-of-type(even) {
+    background-color: rgba(164, 181, 161, .3);
+}
+.type__arrival {
+    margin: auto;
+    width: 46px;
+    height: 46px;
+    display: block;
+    background: url(../img/sprite.png);
+    background-position: 51px 48px;
+}
+.type__sortie {
+    margin: auto;
+    width: 46px;
+    height: 46px;
+    display: block;
+    background: url(../img/sprite.png);
+    background-position: -1px 48px;
+}
+.company__logo {
+    margin: auto;
+    width: 120px;
+    height: 35px;
+    display: block;
+    background: url(../img/companies.jpg);
+}
+.aeroflot {
+    background-position: -477px 0;
+}
+.aerovip {
+    background-position: -596px 0;
+}
+.aigleazur {
+    background-position: 0 0;
+}
+.tailwind {
+    background-position: -119px 0;
+}
+.kenya {
+    background-position: -237px 0;
+}
+.continental {
+    background-position: -355px 0;
+}
+.lionair {
+    background-position: -718px 0;
+}
+.ryanair {
+    background-position: -841px 0;
+}
+.time {
+    font-weight: bold;
+}
+
+@media (max-width:1000px){
+    .table__row li:nth-child(3) {
+        display: none;
+    }
+}
+@media (max-width:900px){
+    .table__row li:nth-child(5) {
+        display: none;
+    }
+    .popup__title {
+        display: none;
+    }
+}
+@media (max-width:800px){
+    .table__row li:nth-child(9) {
+        display: none;
+    }
+    .info {
+        width: 60%;
+    }
+    .sort__panel {
+        width: 30%;
+    }
+}
+@media (max-width:700px){
+    .table__row li:nth-child(8) {
+        display: none;
+    }
+    .info {
+        width: 50%;
+    }
+    .sort__panel {
+        width: 40%;
+    }
+}
+@media (max-width:600px){
+    .table__row li:nth-child(4) {
+        display: none;
+    }
+    .info {
+        width: 40%;
+    }
+    .sort__panel {
+        width: 50%;
+    }
+}
+@media (max-width:450px){
+    .flight__details__popup {
+        top: -200vh !important;
+    }
+}
+.table__row li:last-child {
+    width: 0;
+    z-index: 3;
+}
+.flight__details__popup {
+    display: block;
+    position: fixed;
+    top: -500px;
+    left: 20%;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 60%;
+    z-index: 6;
+    box-shadow: 0 19px 38px 20px rgba(0,0,0,0.3);
+    transition: .5s;
+}
+.table__row:focus {
+    outline: none;
+}
+.table__row:focus .flight__details__popup {
+    top: 30vh;
+}
+.popup__header {
+    min-width: inherit;
+    display: block;
+    width: 100%;
+    background-color: #555;
+    overflow: hidden;
+}
+.popup__title {
+    margin-left: 4vh;
+    vertical-align: bottom;
+    text-align: left;
+    width: 50%;
+    float: left;
+    color: #aaa;
+}
+.popup__header span.date {
+    width: 20%;
+    color: #aaa;
+    font-weight: bold;
+}
+.popup__company {
+    float: right;
+}
+.popup__table {
+    display: block;
+    padding: 2vh 4vh 2vh 4vh;
+}
+.popup__table table {
+    min-width: inherit;
+    width: 100%;
+    background-color:#fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.popup__table tr {
+    border-bottom: 1px solid #aaa;
+}
+.popup__table tr:last-child {
+    border: none;
+}
+.popup__table th,
+.popup__table td
+.popup__table i {
+    text-align: left;
+    width: 50%;
+    padding: 0.6vh 0 0.6vh 3vh;
+    line-height: normal;
+}
+.background {
+    visibility: hidden;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000 !important;
+    z-index: 2;
+    opacity: 0;
+    transition: visibility 0s linear .2s, opacity .2s linear
+}
+.table__row:focus~ .background {
+    visibility: visible;
+    opacity: 0.6;
+    transition-delay: 0s
 }
