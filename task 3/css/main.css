@@ -1,0 +1,110 @@
+@font-face{
+    font-family:'Segoe UI light';
+    src: url(segoeuil.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI light";
+}
+html {
+    height: 100%;
+}
+body {
+    min-width: 500px;
+    font-size: 1.2em;
+    height: 100%;
+}
+
+.main__content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.main__player__area {
+    display: block;
+    width: 60%;
+    height: 60%;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 10% 20%;
+    box-shadow: 0 10px 60px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    border: 2vh solid #dae3eb;
+}
+.player__cover {
+    width: 35%;
+    height: 70%;
+    background-color: darkgrey;
+    margin: 7.5%;
+    border-radius: 10px;
+    background-image: url(../img/note-light-blue.png);
+    background-size: cover;
+    display: inline-block;
+    overflow: hidden;
+}
+.info__area {
+    overflow: hidden;
+    width: 42%;
+    height: 70%;
+    display: inline-block;
+    margin: 7.5% 0;
+}
+.player__song__name,
+.player__artist__name,
+.player__song__title{
+    width: inherit;
+    text-align: center;
+    margin: auto;
+}
+.player__progress__bar {
+    height: 5%;
+    background-color: #fff;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 98%;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+    position: relative;
+}
+.player__progress__bar:before {
+    content: '';
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    background-color: #dae3eb;
+    border-radius: 20px;
+    border-right: 1px solid #aaa;
+}
+
+.min__time {
+    width: 70%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    color: #80A0BC;
+}
+.max__time {
+    width: 25%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-align: right;
+}
+
+@media (max-width: 800px){
+    .player__cover {
+        background-size: 100%;
+    }
+}
+@media (max-width: 700px){
+    .player__cover {
+        display: none;
+    }
+    .info__area {
+        margin: inherit;
+    }
+}
