@@ -7,21 +7,41 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-   <div class="main__content">
-        <div class="main__player__area">
-            <div class="player__cover"></div>
-            <div class="info__area">
-                <div class="player__song__name">09. See Beyond</div>
-                <div class="player__artist__name">Telos</div>
-                <div class="player__song__title">see.mp3</div>
-                <div class="player__progress__bar"></div>
-                <div class="player__song__timebar">
+    <div class="main__content">
+        <div class="player__cover__area"></div>
+        <div class="player__main__area">
+            <div class="info__block">
+                <div class="info">Artist: Telos</div>
+                <div class="info">Song: Lunar</div>
+                <div class="info">Name: lunar.mp3</div>
+                <div class="info progress__bar"></div>
+                <div class="info time__bar">
                     <div class="min__time">01:47</div>
                     <div class="max__time">03:47</div>
                 </div>
+                <div class="info actions__panel">
+                    <div class="action play"></div>
+                    <div class="action stop"></div>
+                    <div class="action volume"></div>
+                    <div class="eq">
+                        <label>
+                            <select>
+                                <option value="0">EQ</option>
+                                <option value="1">Normal</option>
+                                <option value="2">Pop</option>
+                                <option value="3">Rock</option>
+                                <option value="4">Classic</option>
+                                <option value="5">Jazz</option>
+                                <option value="6">Пользовательский</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="drop__area">
+                <input type="file">
             </div>
         </div>
     </div>
-    <div class="background"></div>
 </body>
 </html>
