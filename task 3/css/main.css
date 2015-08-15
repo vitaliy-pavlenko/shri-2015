@@ -266,7 +266,7 @@ body {
 }
 .active__bar {
     height: 164px;
-    z-index: 1;
+    z-index: 2;
 }
 .loading__area {
     position: fixed;
@@ -288,4 +288,8 @@ body {
     height: 64px;
     top: 285px;
     left: 665px;
+}
+#visualization {
+    border-radius: 5px;
+    position: fixed;
 }
