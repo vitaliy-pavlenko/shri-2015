@@ -31,6 +31,9 @@ musicPlayer = function(){
     var dataLength;
     var minTime;
     var maxTime;
+    var showRemains = false;
+    var startPlaying;
+    var progressBar;
 
     var init = function(){
         try {
@@ -60,6 +63,9 @@ musicPlayer = function(){
         volumeBar = document.getElementById('volumeBar');
         volumeSetter = document.getElementById('volumeSet');
         loading = document.getElementById('loadingArea');
+        minTime = document.getElementById('min');
+        maxTime = document.getElementById('max');
+        progressBar = document.getElementById('progressBar');
         stopButton.disabled = true;
         playButton.disabled = true;
         setListeners();
@@ -79,6 +85,7 @@ musicPlayer = function(){
         volumeButton.addEventListener('mouseenter', toggleVolumeBar);
         volumeButton.addEventListener('mouseleave', toggleVolumeBar);
         volumeBar.addEventListener('mousedown', setVolume);
+        maxTime.addEventListener('click', changeTimerType);
     };
 
     var fileHandler = function(e){
@@ -113,17 +120,22 @@ musicPlayer = function(){
     };
 
     var play = function(){
-        minTime = context.currentTime;
         playButton.disabled = true;
         stopButton.disabled = false;
         source = context.createBufferSource();
-        source.onended = toggleDropArea();
+        source.onended = function(){
+            progressBar.style.width = 0;
+            toggleDropArea();
+            cancelAnimationFrame(visualizationArea);
+            updateTimer();
+        };
         source.buffer = buffer;
         source.connect(gainNode);
         source.connect(analyser);
         destination = context.destination;
         gainNode.connect(destination);
         toggleDropArea(true);
+        startPlaying = context.currentTime;
         source.start(0);
         visualize();
     };
@@ -131,8 +143,10 @@ musicPlayer = function(){
     var stop = function(){
         playButton.disabled = false;
         stopButton.disabled = true;
+        progressBar.style.width = 0;
         source.stop(0);
         toggleDropArea();
+        updateTimer();
         cancelAnimationFrame(visualizationArea);
     };
 
@@ -185,6 +199,8 @@ musicPlayer = function(){
     };
 
     var visualize = function() {
+        buildTimer(context.currentTime - startPlaying, source.buffer.duration);
+        progressBar.style.width = (context.currentTime - startPlaying) * 100 / source.buffer.duration + '%';
         visualizationArea = requestAnimationFrame(visualize);
         analyser.getByteFrequencyData(visualData);
         var coordinates = visualizationZone.getBoundingClientRect();
@@ -203,7 +219,34 @@ musicPlayer = function(){
         }
     };
 
+    var buildTimer = function(first, second) {
+        min = (first>3600 ? parseInt(first/3600) + ':' : '') + parseInt((first % 3600) / 60).padding() + ':' + parseInt((first % 3600) % 60).padding();
+        if (showRemains) {
+            max = '-'+((second - first)>3600 ? parseInt((second - first)/3600) + ':' : '') + parseInt(((second - first) % 3600) / 60).padding() + ':' + parseInt(((second - first) % 3600) % 60).padding();
+        } else {
+            max = parseInt(((second) % 3600) / 60).padding() + ':' + parseInt(((second) % 3600) % 60).padding();
+        }
+        updateTimer(min, max);
+    };
+
+    var updateTimer = function(min, max) {
+        min = min || '00:00';
+        max = max || '00:00';
+        minTime.innerHTML = min;
+        maxTime.innerHTML = max;
+    };
+
+    var changeTimerType = function() {
+        showRemains = !showRemains;
+    };
+
     return init();
+};
+
+Number.prototype.padding = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
 };
 
 window.addEventListener('load', musicPlayer);
