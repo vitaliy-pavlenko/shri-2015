@@ -13,6 +13,8 @@ musicPlayer = function(){
     var destination;
     var playButton;
     var stopButton;
+    var artistNameEl;
+    var songNameEl;
     var fileNameEl;
     var gainNode;
     var volumeButton;
@@ -20,6 +22,7 @@ musicPlayer = function(){
     var isOpened = false;
     var volume = 0.5;
     var volumeSetter;
+    var loading;
 
     var init = function(){
         try {
@@ -36,10 +39,13 @@ musicPlayer = function(){
         fileInput = document.getElementById('uploadFile');
         playButton = document.getElementById('play');
         stopButton = document.getElementById('stop');
+        artistNameEl = document.getElementById('artistName');
+        songNameEl = document.getElementById('songName');
         fileNameEl = document.getElementById('fileName');
         volumeButton = document.getElementById('volume');
         volumeBar = document.getElementById('volumeBar');
         volumeSetter = document.getElementById('volumeSet');
+        loading = document.getElementById('loadingArea');
         stopButton.disabled = true;
         playButton.disabled = true;
         setListeners();
@@ -73,15 +79,17 @@ musicPlayer = function(){
         }
         dropZone.style.display = 'none';
         visualizationZone.style.display = 'block';
+        readTags(file);
         readFile(file);
     };
 
     var readFile = function(fileName){
+        loading.style.display = 'block';
         var reader = new FileReader();
         reader.onload = function(e){
             context.decodeAudioData(e.target.result, function(decodedArrayBuffer){
                 buffer = decodedArrayBuffer;
-                fileNameEl.innerHTML = 'Name: ' + fileName.name;
+                loading.style.display = 'none';
                 play();
             }, function(e){
                 alert('decodeAudioDataError : ' + e);
@@ -126,6 +134,25 @@ musicPlayer = function(){
         volume = document.body.scrollTop + coordinats.top + 100 - e.pageY;
         gainNode.gain.value = volume/100;
         volumeSetter.style.height = volume + 'px';
+    };
+
+    var readTags = function(fileName) {
+        ID3.loadTags(fileName, function() {
+            var tags = ID3.getAllTags(fileName);
+            setTags(tags['artist'], tags['title'], fileName.name);
+        },{
+            tags: ["title","artist"],
+            dataReader: FileAPIReader(fileName)
+        });
+    };
+
+    var setTags = function(artist, song, title){
+        artist = artist || 'Unknown';
+        song = song || 'Unknown';
+        title = title || 'Unknown';
+        artistNameEl.innerHTML = 'Artist: ' + artist;
+        songNameEl.innerHTML = 'Song: ' + song;
+        fileNameEl.innerHTML = 'Name: ' + title;
     };
 
     return init();

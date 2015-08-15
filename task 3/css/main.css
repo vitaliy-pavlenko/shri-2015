@@ -7,9 +7,6 @@
     padding: 0;
     font-family: "Segoe UI light";
 }
-html {
-    height: 100%;
-}
 body {
     min-width: 500px;
     font-size: 1.2em;
@@ -123,8 +120,11 @@ body {
     font-weight: bold;
 }
 .info {
-    height: 25px;
+    height: 26px;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .time__bar {
     height: 20px !important;
@@ -267,4 +267,25 @@ body {
 .active__bar {
     height: 164px;
     z-index: 1;
+}
+.loading__area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5);
+}
+.loading__area:after {
+    content: '';
+    position: absolute;
+    background-image: url(../img/load.gif);
+    display: block;
+    width: 64px;
+    height: 64px;
+    top: 285px;
+    left: 665px;
 }

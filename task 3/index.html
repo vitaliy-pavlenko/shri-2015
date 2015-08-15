@@ -7,48 +7,47 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-<div class="main__content">
-    <div class="player__cover__area"></div>
-    <div class="player__main__area">
-        <div class="info__block">
-            <div class="info" id="artistName">Artist: Telos</div>
-            <div class="info" id="songName">Song: Lunar</div>
-            <div class="info" id="fileName">Name: lunar.mp3</div>
-            <div class="info progress__bar"></div>
-            <div class="info time__bar">
-                <div class="min__time">01:47</div>
-                <div class="max__time">03:47</div>
-            </div>
-            <div class="info actions__panel">
-                <button class="action play" id="play"></button>
-                <button class="action stop" id="stop"></button>
-                <button class="action volume" id="volume" tabindex="1">
-                        <span class="volume__bar" id="volumeBar">
-                            <span class="volume__setter" id="volumeSet"></span>
-                        </span>
-                </button>
-                <div class="eq">
-                    <label>
-                        <select>
-                            <option value="0">EQ</option>
-                            <option value="1">Normal</option>
-                            <option value="2">Pop</option>
-                            <option value="3">Rock</option>
-                            <option value="4">Classic</option>
-                            <option value="5">Jazz</option>
-                            <option value="6">Пользовательский</option>
-                        </select>
-                    </label>
+    <div class="main__content">
+        <div class="player__cover__area"></div>
+        <div class="player__main__area">
+            <div class="info__block">
+                <div class="info" id="artistName">Artist: </div>
+                <div class="info" id="songName">Song: </div>
+                <div class="info" id="fileName">Name: </div>
+                <div class="info progress__bar"></div>
+                <div class="info time__bar">
+                    <div class="min__time"></div>
+                    <div class="max__time"></div>
+                </div>
+                <div class="actions__panel">
+                    <button class="action play" id="play"></button>
+                    <button class="action stop" id="stop"></button>
+                    <button class="action volume" id="volume" tabindex="1">
+                            <span class="volume__bar" id="volumeBar">
+                                <span class="volume__setter" id="volumeSet"></span>
+                            </span>
+                    </button>
+                    <div class="eq">
+                        <label>
+                            <select>
+                                <option value="0">EQ</option>
+                                <option value="1">Normal</option>
+                                <option value="2">Pop</option>
+                                <option value="3">Rock</option>
+                                <option value="4">Classic</option>
+                                <option value="5">Jazz</option>
+                            </select>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="drop__area" id="dropArea">
-            <input type="file" id="uploadFile">
-        </div>
-        <div class="visualization__area" id="visualizationArea">
-
+            <div class="drop__area" id="dropArea">
+                <input type="file" id="uploadFile">
+            </div>
+            <div class="visualization__area" id="visualizationArea"></div>
         </div>
     </div>
-</div>
+    <div class="loading__area" id="loadingArea">
+    </div>
 </body>
 </html>
