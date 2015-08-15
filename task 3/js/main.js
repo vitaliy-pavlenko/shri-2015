@@ -23,17 +23,31 @@ musicPlayer = function(){
     var volume = 0.5;
     var volumeSetter;
     var loading;
+    var analyser;
+    var canvasEl;
+    var canvas;
+    var visualizationArea;
+    var visualData;
+    var dataLength;
+    var minTime;
+    var maxTime;
 
     var init = function(){
         try {
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             context = new AudioContext();
-            gainNode = context.createGain();
-            gainNode.gain.value = volume;
         } catch(e) {
             alert('Your browser do not support Web Audio API');
             return false;
         }
+        gainNode = context.createGain();
+        gainNode.gain.value = volume;
+        analyser = context.createAnalyser();
+        analyser.fftSize = 256;
+        dataLength = analyser.frequencyBinCount;
+        visualData = new Uint8Array(dataLength);
+        canvasEl = document.getElementById('visualization');
+        canvas = canvasEl.getContext('2d');
         dropZone = document.getElementById('dropArea');
         visualizationZone = document.getElementById('visualizationArea');
         fileInput = document.getElementById('uploadFile');
@@ -77,10 +91,10 @@ musicPlayer = function(){
                 file = e.target.files[0];
                 break;
         }
-        dropZone.style.display = 'none';
-        visualizationZone.style.display = 'block';
-        readTags(file);
-        readFile(file);
+        if (file) {
+            readTags(file);
+            readFile(file);
+        }
     };
 
     var readFile = function(fileName){
@@ -99,22 +113,27 @@ musicPlayer = function(){
     };
 
     var play = function(){
+        minTime = context.currentTime;
         playButton.disabled = true;
         stopButton.disabled = false;
         source = context.createBufferSource();
+        source.onended = toggleDropArea();
         source.buffer = buffer;
         source.connect(gainNode);
+        source.connect(analyser);
         destination = context.destination;
         gainNode.connect(destination);
+        toggleDropArea(true);
         source.start(0);
+        visualize();
     };
 
     var stop = function(){
         playButton.disabled = false;
         stopButton.disabled = true;
         source.stop(0);
-        dropZone.style.display = 'block';
-        visualizationZone.style.display = 'none';
+        toggleDropArea();
+        cancelAnimationFrame(visualizationArea);
     };
 
     var toggleVolumeBar = function() {
@@ -129,9 +148,19 @@ musicPlayer = function(){
         }
     };
 
+    var toggleDropArea = function(hide) {
+        if (hide) {
+            dropZone.style.display = 'none';
+            visualizationZone.style.display = 'block';
+        } else {
+            dropZone.style.display = 'block';
+            visualizationZone.style.display = 'none';
+        }
+    };
+
     var setVolume = function(e) {
-        coordinats = volumeBar.getBoundingClientRect();
-        volume = document.body.scrollTop + coordinats.top + 100 - e.pageY;
+        var coordinates = volumeBar.getBoundingClientRect();
+        volume = document.body.scrollTop + coordinates.top + 100 - e.pageY;
         gainNode.gain.value = volume/100;
         volumeSetter.style.height = volume + 'px';
     };
@@ -153,6 +182,25 @@ musicPlayer = function(){
         artistNameEl.innerHTML = 'Artist: ' + artist;
         songNameEl.innerHTML = 'Song: ' + song;
         fileNameEl.innerHTML = 'Name: ' + title;
+    };
+
+    var visualize = function() {
+        visualizationArea = requestAnimationFrame(visualize);
+        analyser.getByteFrequencyData(visualData);
+        var coordinates = visualizationZone.getBoundingClientRect();
+        canvasEl.style.top = coordinates.top + 'px';
+        canvasEl.style.left = coordinates.left + 'px';
+        canvas.fillStyle = '#e6e6e6';
+        canvas.fillRect(0, 0, 300, 100);
+        var barWidth = Math.round(300/ dataLength);
+        var barHeight;
+        var x = 0;
+        for (var i = 0; i < dataLength; i++) {
+            barHeight = visualData[i]/2;
+            canvas.fillStyle = '#80a0bc';
+            canvas.fillRect(x, 100-barHeight, barWidth, barHeight);
+            x += barWidth + 1;
+        }
     };
 
     return init();
