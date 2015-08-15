@@ -59,6 +59,15 @@ body {
     height: 180px;
     margin: auto;
 }
+.visualization__area {
+    position: relative;
+    margin: 21px auto;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    display: none;
+}
 .drop__area {
     position: relative;
     margin: 19px auto;
@@ -67,6 +76,7 @@ body {
     background-color: rgba(0, 0, 0, .1);
     border-radius: 5px;
     border: 1px dashed rgba(0, 0, 0, .5);
+    cursor: pointer;
 }
 .drop__area:after {
     content: 'Drop some \266B  here';
@@ -120,6 +130,8 @@ body {
     height: 20px !important;
 }
 .action {
+    outline: none;
+    cursor: pointer;
     position: relative;
     display: inline-block;
     float: left;
@@ -141,6 +153,9 @@ body {
 .action:hover {
     background: -moz-linear-gradient(top, #c2bcc2 0%, #ffffff 40%, #ffffff 50%, #ffffff 5%, #a89ea8);
     background: -webkit-gradient(linear, left top, left bottom, from(#c2bcc2), color-stop(.40, #ffffff), color-stop(.50, #ffffff), color-stop(.5, #ffffff), to(#a89ea8));
+}
+.action:disabled {
+    cursor: no-drop;
 }
 .eq {
     display: inline-block;
@@ -228,4 +243,28 @@ body {
     background-image: url(../img/volume.png);
     background-size: contain;
     opacity: .5;
+}
+.volume__bar {
+    display: none;
+    position: relative;
+    background-color: #aaa;
+    border: 1px solid #888;
+    width: 10px;
+    margin: 44px auto;
+    height: 100px;
+    border-radius: 5px;
+}
+.volume__setter {
+    position: absolute;
+    height: 50px;
+    width: 10px;
+    border-radius: 5px;
+    border: 1px solid #888;
+    background-color: #80a0bc;
+    left: -1px;
+    bottom: 0;
+}
+.active__bar {
+    height: 164px;
+    z-index: 1;
 }
