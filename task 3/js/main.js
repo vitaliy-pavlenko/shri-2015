@@ -34,6 +34,15 @@ musicPlayer = function(){
     var showRemains = false;
     var startPlaying;
     var progressBar;
+    var eqValues = {
+        1 : [0,0,0,0,0,0,0,0,0,0],
+        2 : [0,3,5,7,4,0,0,0,1,1],
+        3 : [5,2,-3,-5,-1,2,4,6,8,8],
+        4 : [-2,0,2,3,4,4,3,1,1,1],
+        5 : [-1,-1,0,1,2,2,1,0,-1,-1]
+    };
+    var eqSelect;
+    var filters;
 
     var init = function(){
         try {
@@ -66,6 +75,8 @@ musicPlayer = function(){
         minTime = document.getElementById('min');
         maxTime = document.getElementById('max');
         progressBar = document.getElementById('progressBar');
+        eqSelect = document.getElementById('eqSelect');
+        filters = createFilters();
         stopButton.disabled = true;
         playButton.disabled = true;
         setListeners();
@@ -86,6 +97,7 @@ musicPlayer = function(){
         volumeButton.addEventListener('mouseleave', toggleVolumeBar);
         volumeBar.addEventListener('mousedown', setVolume);
         maxTime.addEventListener('click', changeTimerType);
+        eqSelect.addEventListener('change', eqSelectHandler);
     };
 
     var fileHandler = function(e){
@@ -129,9 +141,11 @@ musicPlayer = function(){
             cancelAnimationFrame(visualizationArea);
             updateTimer();
         };
+        filters = createFilters();
         source.buffer = buffer;
-        source.connect(gainNode);
-        source.connect(analyser);
+        source.connect(filters[0]);
+        filters[filters.length - 1].connect(analyser);
+        analyser.connect(gainNode);
         destination = context.destination;
         gainNode.connect(destination);
         toggleDropArea(true);
@@ -238,6 +252,38 @@ musicPlayer = function(){
 
     var changeTimerType = function() {
         showRemains = !showRemains;
+    };
+
+    var createFilter = function (frequency) {
+        var filter = context.createBiquadFilter();
+        filter.type = 'peaking';
+        filter.frequency.value = frequency;
+        filter.Q.value = 1;
+        filter.gain.value = 0;
+        return filter;
+    };
+
+    var createFilters = function () {
+        var frequencies = [60, 170, 310, 600, 1000, 3000, 6000, 12000, 14000, 16000];
+        filters = frequencies.map(createFilter);
+        filters.reduce(function (prev, curr) {
+            prev.connect(curr);
+            return curr;
+        });
+        return filters;
+    };
+
+    var eqSelectHandler = function() {
+        if (eqSelect.selectedIndex) {
+            eqSelect.options[0].disabled = true;
+            setEqValues(eqSelect.selectedIndex);
+        }
+    };
+
+    var setEqValues = function(type) {
+        filters.forEach(function(item, i){
+            item.gain.value = eqValues[type][i];
+        })
     };
 
     return init();
