@@ -188,7 +188,8 @@ musicPlayer = function(){
 
     var setVolume = function(e) {
         var coordinates = volumeBar.getBoundingClientRect();
-        volume = document.body.scrollTop + coordinates.top + 100 - e.pageY;
+        scrlTop = document.documentElement.scrollTop || document.body.scrollTop;
+        volume = scrlTop + coordinates.top + 100 - e.pageY;
         gainNode.gain.value = volume/100;
         volumeSetter.style.height = volume + 'px';
     };
